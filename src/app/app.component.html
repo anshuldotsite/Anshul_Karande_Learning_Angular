@@ -8,37 +8,9 @@
 </head>
 
 <body>
+  <h1>Welcome to our Coffee Shop</h1>
+  <h2>Our Menu</h2>
+  <app-coffee-menu-items></app-coffee-menu-items>
 
-  <div class="container">
-    <h1>
-      Coffee Shop
-    </h1>
-    <ul>
-      <li *ngFor="let coffee of coffees">
-        <div *ngIf="coffee.price < 3;">
-          <h2>{{coffee.name}}</h2>
-          <p>Origin: {{coffee.origin}}</p>
-          <p>Roast: {{coffee.roast}}
-          </p>
-          <p>Price: {{coffee.price}}
-          </p>
-          <p *ngIf="coffee.inStock !== undefined">
-            Stock: {{coffee.inStock ? 'In Stock' : 'Out of Stock'}}
-          </p>
-        </div>
-        <div *ngIf="coffee.price >= 3;">
-          <h2>{{coffee.name}}</h2>
-          <p>Origin: {{coffee.origin}}</p>
-          <p>Roast: {{coffee.roast}}</p>
-          <p>Price: {{coffee.price}}
-          </p>
-          <p *ngIf="coffee.inStock !== undefined">
-            Stock: {{coffee.inStock ? 'In Stock' : 'Out of Stock'}}
-          </p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</body>
-
-</html>
+  <h2>Our Location</h2>
+  <app-coffee-shop-location></app-coffee-shop-location>
