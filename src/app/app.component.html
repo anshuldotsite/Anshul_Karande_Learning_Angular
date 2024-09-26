@@ -4,17 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Coffee Shop</title>
 </head>
 
 <body>
 
-  <div>
+  <div class="container">
     <h1>
       Coffee Shop
     </h1>
+    <ul>
+      <li *ngFor="let coffee of coffees">
+        <div *ngIf="coffee.price < 3;">
+          <h2>{{coffee.name}}</h2>
+          <p>Origin: {{coffee.origin}}</p>
+          <p>Roast: {{coffee.roast}}
+          </p>
+          <p>Price: {{coffee.price}}
+          </p>
+          <p *ngIf="coffee.inStock !== undefined">
+            Stock: {{coffee.inStock ? 'In Stock' : 'Out of Stock'}}
+          </p>
+        </div>
+        <div *ngIf="coffee.price >= 3;">
+          <h2>{{coffee.name}}</h2>
+          <p>Origin: {{coffee.origin}}</p>
+          <p>Roast: {{coffee.roast}}</p>
+          <p>Price: {{coffee.price}}
+          </p>
+          <p *ngIf="coffee.inStock !== undefined">
+            Stock: {{coffee.inStock ? 'In Stock' : 'Out of Stock'}}
+          </p>
+        </div>
+      </li>
+    </ul>
   </div>
-
 </body>
 
 </html>
