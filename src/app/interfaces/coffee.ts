@@ -3,4 +3,5 @@ export interface Coffee {
   origin: String;
   roast: String;
   price: number;
+  inStock?: boolean; //optional
 }
