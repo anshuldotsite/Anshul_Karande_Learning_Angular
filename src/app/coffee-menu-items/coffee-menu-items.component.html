@@ -1,0 +1,6 @@
+<div *ngFor="let coffee of CoffeeItems" class="coffee-item">
+    <img [src]="coffee.image" alt="Coffee Image" class="coffee-image" />
+    <h2>{{coffee.name}}</h2>
+    <p>{{coffee.description}}</p>
+    <p>Price: ${{coffee.price}}</p>
+</div>

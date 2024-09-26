@@ -1,0 +1,12 @@
+.coffee-item {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  text-align: center;
+}
+
+.coffee-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
