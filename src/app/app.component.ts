@@ -46,5 +46,12 @@ export class AppComponent {
       price: 3.5,
       inStock: false,
     },
+    {
+      name: 'Mocha',
+      origin: 'Sumatra',
+      roast: 'dark',
+      price: 4.0,
+      inStock: true,
+    },
   ];
 }
