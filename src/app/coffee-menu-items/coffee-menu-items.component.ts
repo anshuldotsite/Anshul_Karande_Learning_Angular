@@ -15,7 +15,7 @@ export class CoffeeMenuItemsComponent {
       description:
         'Strong coffee brewed by forcing steam through finely-ground coffee beans.',
       price: 2.5,
-      image: 'assets/images/espresso.jpg',
+      image: '/assets/images/espresso.jpg',
     },
     {
       name: 'Filter',
