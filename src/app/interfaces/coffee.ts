@@ -1,7 +1,7 @@
 export interface Coffee {
   name: String;
-  origin: String;
-  roast: String;
+  description: String;
   price: number;
+  image: String;
   inStock?: boolean; //optional
 }
