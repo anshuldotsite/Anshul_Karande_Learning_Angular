@@ -3,12 +3,12 @@ body {
   line-height: 2;
   margin: 0;
   padding: 20px;
-  background-color: #271300;
+  background-color: #6f4e37;
 }
 
 h2,
 h1 {
-  color: #333;
+  color: #241609;
   display: flex;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;

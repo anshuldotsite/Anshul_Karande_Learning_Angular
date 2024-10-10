@@ -19,7 +19,7 @@ export class CoffeeMenuItemsComponent {
     },
     {
       name: 'Filter',
-      Description:
+      description:
         'Coffee brewed by filtering hot water through ground coffee beans.',
       price: 2.0,
       image: 'assets/images/filter.jpg',

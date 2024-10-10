@@ -1,12 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.coffee-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
 .coffee-item {
   border: 1px solid #ccc;
-  padding: 15px;
-  margin: 10px;
-  text-align: center;
+  color: #241609;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 300px;
+  height: 150px;
+  overflow: hidden;
+  line-height: 21px;
 }
 
 .coffee-image {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
+  margin-right: 10px;
+}
+
+.coffee-price {
+  font-weight: bold;
 }
