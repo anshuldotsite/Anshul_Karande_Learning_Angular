@@ -1,6 +1,8 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { CoffeeItems } from '../data/coffee-items';
+import { Coffee } from '../interfaces/coffee';
+import { CoffeeMenuService } from '../services/coffee-menu.service';
 
 @Component({
   selector: 'app-coffee-menu-items',
@@ -10,5 +12,14 @@ import { CoffeeItems } from '../data/coffee-items';
   styleUrl: './coffee-menu-items.component.css',
 })
 export class CoffeeMenuItemsComponent {
-  CoffeeItems = CoffeeItems;
+  CoffeeItems: Coffee[] = [];
+  constructor(private CoffeeMenuService: CoffeeMenuService) {}
+
+  ngOnInit(): void {
+    this.CoffeeMenuService.getMenu().subscribe({
+      next: (coffeeMenu: Coffee[]) => {
+        this.CoffeeItems = coffeeMenu;
+      },
+    });
+  }
 }
