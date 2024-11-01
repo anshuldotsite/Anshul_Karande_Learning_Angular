@@ -3,11 +3,15 @@ import { AppComponent } from './app/app.component';
 import { provideRouter, Routes } from '@angular/router';
 import { CoffeeListComponent } from './app/coffee-list/coffee-list.component';
 import { CoffeeListItemComponent } from './app/coffee-list-item/coffee-list-item.component';
+import { ModifyListItemComponent } from './app/modify-list-item/modify-list-item.component';
+import { PageNotFoundComponent } from './app/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/coffee', pathMatch: 'full' }, //default route
   { path: 'coffee', component: CoffeeListComponent },
   { path: 'coffee/:id', component: CoffeeListItemComponent },
+  { path: 'modify-coffee', component: ModifyListItemComponent },
+  { path: '**', component: PageNotFoundComponent }, //Wildcard route for a 404 page
 ];
 
 bootstrapApplication(AppComponent, {

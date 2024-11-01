@@ -1,2 +1,14 @@
-<app-coffee-list-item></app-coffee-list-item>
-<app-coffee-list></app-coffee-list>
+<!-- Future Nav bar-->
+<div class="nav-bar">
+  <nav>
+    <a routerLink="/coffee" routerLinkActive="active">Coffee List</a>
+    <a routerLink="/modify-coffee" routerLinkActive="active">Modify Coffee</a>
+  </nav>
+</div>
+
+<div class="app-container">
+  <h1>{{ title }}</h1>
+
+  <!--router outlet to display routed components -->
+  <router-outlet></router-outlet>
+</div>
