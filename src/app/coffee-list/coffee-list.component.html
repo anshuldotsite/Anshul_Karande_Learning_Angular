@@ -1,0 +1,16 @@
+<div *ngIf="selectedCoffeeItem" class="selected-item">
+    <h2>{{ selectedCoffeeItem.name }}</h2>
+    <p>{{ selectedCoffeeItem.description }}</p>
+    <p>Price: ${{ selectedCoffeeItem.price }}</p>
+    <img [src]="selectedCoffeeItem.image" alt="{{ selectedCoffeeItem.name }}" />
+    <p *ngIf="selectedCoffeeItem.inStock">In Stock</p>
+    <p *ngIf="!selectedCoffeeItem.inStock">Out of Stock</p>
+</div>
+
+<h3>Menu</h3>
+<ul>
+    <li *ngFor="let coffee of CoffeeItems" (click)="selectCoffee(coffee.id)" class="clickable-item"
+        style="cursor: pointer;">
+        {{ coffee.name }} - ${{ coffee.price }}
+    </li>
+</ul>
