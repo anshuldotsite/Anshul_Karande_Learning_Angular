@@ -6,6 +6,13 @@
     <p *ngIf="!selectedCoffeeItem.inStock">Out of Stock</p>
 </div>
 
+<div *ngFor="let coffee of CoffeeItems">
+    <app-coffee-list-item [inStock]="coffee"></app-coffee-list-item>
+    <button (click)="updateCoffeeItem(coffee)">Edit</button>
+    <button (click)="deleteCoffeeItem(coffee.id)">Delete</button>
+</div>
+
+
 <h3>Menu</h3>
 <ul>
     <li *ngFor="let coffee of CoffeeItems" (click)="selectCoffee(coffee.id)" class="clickable-item"

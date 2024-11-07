@@ -43,4 +43,12 @@ export class CoffeeListComponent implements OnInit {
       },
     });
   }
+
+  updateCoffeeItem(item: Coffee) {
+    this.CoffeeService.updateMenuItem(item);
+  }
+
+  deleteCoffeeItem(id: number) {
+    this.CoffeeService.deleteMenuItem(id);
+  }
 }
