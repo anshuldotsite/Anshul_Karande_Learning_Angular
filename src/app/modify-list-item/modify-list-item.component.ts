@@ -27,10 +27,15 @@ export class ModifyListItemComponent implements OnInit {
     private router: Router
   ) {
     this.coffeeForm = this.formBuilder.group({
-      id: ['', Validators.required],
-      name: ['', Validators.required],
+      id: [
+        '',
+        Validators.required,
+        Validators.pattern('/^[0-9]+$/'),
+        Validators.min(1),
+      ],
+      name: ['', Validators.required, Validators.pattern('/^[a-zA-Z0-9s]*$/')],
       inStock: ['false', Validators.required],
-      price: ['', Validators.required],
+      price: ['', Validators.required, Validators.min(0)],
       description: ['', Validators.required],
       image: ['', Validators.required],
     });
