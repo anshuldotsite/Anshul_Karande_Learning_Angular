@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Coffee } from '../Shared/interfaces/coffee';
 import { CoffeeItems } from '../Shared/data/coffee-items';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Observable, of } from 'rxjs';
 export class CoffeeService {
   private menu: Coffee[] = CoffeeItems;
 
-  constructor() {}
+  // constructor(private http: HttpClient) {}
 
   getMenu(): Observable<Coffee[]> {
     return of(CoffeeItems);
@@ -36,5 +37,11 @@ export class CoffeeService {
   getMenuById(id: number): Observable<Coffee | undefined> {
     const item = this.menu.find((item) => item.id === id);
     return of(item);
+  }
+
+  generateNewId(): number {
+    return this.menu.length > 0
+      ? Math.max(...this.menu.map((menu) => menu.id)) + 1
+      : 1;
   }
 }

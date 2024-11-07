@@ -3,6 +3,7 @@ import { Coffee } from '../Shared/interfaces/coffee';
 import { CoffeeListItemComponent } from '../coffee-list-item/coffee-list-item.component';
 import { CoffeeService } from '../Services/coffee.service';
 import { NgFor, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coffee-list',
@@ -16,7 +17,7 @@ export class CoffeeListComponent implements OnInit {
 
   CoffeeItems: Coffee[] = [];
 
-  constructor(private CoffeeService: CoffeeService) {}
+  constructor(private CoffeeService: CoffeeService, private Router: Router) {}
 
   ngOnInit() {
     this.CoffeeService.getMenu().subscribe({
@@ -45,10 +46,12 @@ export class CoffeeListComponent implements OnInit {
   }
 
   updateCoffeeItem(item: Coffee) {
-    this.CoffeeService.updateMenuItem(item);
+    this.selectedCoffeeItem = item;
+    this.Router.navigate(['modify-coffee', item]);
   }
 
   deleteCoffeeItem(id: number) {
     this.CoffeeService.deleteMenuItem(id);
+    this.CoffeeItems = this.CoffeeItems.filter((item) => item.id !== id);
   }
 }
