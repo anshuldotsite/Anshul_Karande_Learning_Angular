@@ -1,8 +1,9 @@
 <div *ngIf="inStock">
     <p><strong>ID:</strong>{{inStock.id}}</p>
-    <p><strong>Name:</strong>{{inStock.name}}</p>
+    <p><strong>Name:</strong>{{inStock.name.toString() | uppercase}}</p>
     <p><strong>Description:</strong>{{inStock.description}}</p>
-    <p><strong>Price:</strong>{{inStock.price}}</p>
+    <p><strong>Price:</strong>{{inStock.price | currency:"USD"}}</p>
     <p><strong>Stock:</strong>{{inStock.inStock}}</p>
+    <p><strong>Last Updated:</strong> {{today | date:'medium'}}</p>
     <img [ngSrc]="inStock.image" width="100" height="100" />
 </div>

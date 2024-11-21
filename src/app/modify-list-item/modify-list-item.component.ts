@@ -13,7 +13,7 @@ import { Coffee } from '../Shared/interfaces/coffee';
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
-  imports: [NgFor, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css',
 })

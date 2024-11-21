@@ -5,4 +5,5 @@ export interface Coffee {
   price: number;
   image: String;
   inStock?: boolean; //optional
+  lastUpdated: Date;
 }

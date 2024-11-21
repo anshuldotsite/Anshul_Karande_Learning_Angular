@@ -7,6 +7,7 @@ export const CoffeeItems = [
     price: 2.5,
     image: '/assets/images/espresso.jpg',
     inStock: true,
+    lastUpdated: new Date(),
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const CoffeeItems = [
     price: 2.0,
     image: 'assets/images/filter.jpg',
     inStock: false,
+    lastUpdated: new Date(),
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const CoffeeItems = [
     price: 1.5,
     image: 'assets/images/americano.jpg',
     inStock: true,
+    lastUpdated: new Date(),
   },
   {
     id: 4,
@@ -33,6 +36,7 @@ export const CoffeeItems = [
     price: 4.0,
     image: 'assets/images/latte.jpg',
     inStock: true,
+    lastUpdated: new Date(),
   },
   {
     id: 5,
@@ -41,6 +45,7 @@ export const CoffeeItems = [
     price: 3.5,
     image: 'assets/images/cappuccino.jpg',
     inStock: false,
+    lastUpdated: new Date(),
   },
   {
     id: 6,
@@ -50,5 +55,6 @@ export const CoffeeItems = [
     price: 5.0,
     image: 'assets/images/mocha.jpg',
     inStock: true,
+    lastUpdated: new Date(),
   },
 ];
