@@ -8,8 +8,8 @@ import {
   UpperCasePipe,
   NgClass,
 } from '@angular/common';
-import { CoffeeStrengthPipe } from '../Shared/pipes/coffee-strength.pipes';
-import { AvailabilityColorPipe } from '../Shared/pipes/availability-color.pipes';
+import { AvailabilityColorPipe } from '../Shared/pipes/availabilty-color.pipe';
+import { CoffeeStrengthPipe } from '../Shared/pipes/coffee-strength.pipe';
 
 @Component({
   selector: 'app-coffee-list-item',

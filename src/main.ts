@@ -7,8 +7,20 @@ import { PageNotFoundComponent } from './app/page-not-found/page-not-found.compo
 
 const routes: Routes = [
   { path: '', redirectTo: '/coffee', pathMatch: 'full' }, //default route
-  { path: 'coffee', component: CoffeeListComponent },
-  { path: 'modify-coffee', component: ModifyListItemComponent },
+  {
+    path: 'coffee',
+    loadComponent: () =>
+      import('./app/coffee-list/coffee-list.component').then(
+        (m) => m.CoffeeListComponent
+      ),
+  },
+  {
+    path: 'modify-coffee',
+    loadComponent: () =>
+      import('./app/modify-list-item/modify-list-item.component').then(
+        (m) => m.ModifyListItemComponent
+      ),
+  },
   { path: '**', component: PageNotFoundComponent }, //Wildcard route for a 404 page
 ];
 
