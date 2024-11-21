@@ -3,7 +3,10 @@
     <p><strong>Name:</strong>{{inStock.name.toString() | uppercase}}</p>
     <p><strong>Description:</strong>{{inStock.description}}</p>
     <p><strong>Price:</strong>{{inStock.price | currency:"USD"}}</p>
-    <p><strong>Stock:</strong>{{inStock.inStock}}</p>
+    <p [ngClass]="(inStock.inStock ?? false) | availabilityColor">
+        <strong>Stock:</strong> {{inStock.inStock ? 'In Stock' : 'Out of Stock'}}
+    </p>
     <p><strong>Last Updated:</strong> {{today | date:'medium'}}</p>
+    <p><strong>Strength:</strong> {{inStock.name.toString() | coffeeStrength}}</p>
     <img [ngSrc]="inStock.image" width="100" height="100" />
 </div>

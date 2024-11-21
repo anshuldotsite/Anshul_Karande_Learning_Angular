@@ -6,4 +6,5 @@ export interface Coffee {
   image: String;
   inStock?: boolean; //optional
   lastUpdated: Date;
+  strength?: number;
 }
