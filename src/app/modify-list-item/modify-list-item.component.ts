@@ -6,14 +6,14 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { CoffeeService } from '../Services/coffee.service';
-import { NgFor } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Coffee } from '../Shared/interfaces/coffee';
+import { HighlightOnFocusDirective } from '../Shared/directives/highlight-on-focus.directive';
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, HighlightOnFocusDirective],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css',
 })
@@ -29,13 +29,15 @@ export class ModifyListItemComponent implements OnInit {
     this.coffeeForm = this.formBuilder.group({
       id: [
         '',
-        Validators.required,
-        Validators.pattern('/^[0-9]+$/'),
-        Validators.min(1),
+        [
+          Validators.required,
+          Validators.pattern('^[0-9]+$'),
+          Validators.min(1),
+        ],
       ],
-      name: ['', Validators.required, Validators.pattern('/^[a-zA-Z0-9s]*$/')],
+      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9s]*$')]],
+      price: ['', [Validators.required, Validators.min(0)]],
       inStock: ['false', Validators.required],
-      price: ['', Validators.required, Validators.min(0)],
       description: ['', Validators.required],
       image: ['', Validators.required],
     });
