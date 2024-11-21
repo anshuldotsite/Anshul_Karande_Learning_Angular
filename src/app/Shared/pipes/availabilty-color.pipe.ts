@@ -6,6 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class AvailabilityColorPipe implements PipeTransform {
   transform(inStock: boolean): string {
-    return inStock ? '#10B981' : '#EF4444';
+    return inStock ? '#10B981' : '#EF4442';
   }
 }
