@@ -10,6 +10,7 @@ import {
 } from '@angular/common';
 import { AvailabilityColorPipe } from '../Shared/pipes/availabilty-color.pipe';
 import { CoffeeStrengthPipe } from '../Shared/pipes/coffee-strength.pipe';
+import { HoverHighlightDirective } from '../Shared/directives/hover-highlight.directive';
 
 @Component({
   selector: 'app-coffee-list-item',
@@ -23,6 +24,7 @@ import { CoffeeStrengthPipe } from '../Shared/pipes/coffee-strength.pipe';
     NgClass,
     AvailabilityColorPipe,
     CoffeeStrengthPipe,
+    HoverHighlightDirective,
   ],
   templateUrl: './coffee-list-item.component.html',
   styleUrl: './coffee-list-item.component.css',

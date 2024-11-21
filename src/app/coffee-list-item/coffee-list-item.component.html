@@ -1,8 +1,8 @@
-<div *ngIf="inStock">
+<div *ngIf="inStock" [appHoverHighlight]="'lightblue'">
     <p><strong>ID:</strong>{{inStock.id}}</p>
     <p><strong>Name:</strong>{{inStock.name.toString() | uppercase}}</p>
     <p><strong>Description:</strong>{{inStock.description}}</p>
-    <p><strong>Price:</strong>{{inStock.price | currency:"USD"}}</p>
+    <p><strong>Price:</strong>{{inStock.price | currency:"CAD": "symbol-narrow"}}</p>
     <p [ngClass]="(inStock.inStock ?? false) | availabilityColor">
         <strong>Stock:</strong> {{inStock.inStock ? 'In Stock' : 'Out of Stock'}}
     </p>
