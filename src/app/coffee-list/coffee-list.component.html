@@ -1,31 +1,29 @@
 <mat-card *ngIf="selectedCoffeeItem" class="selected-item">
-    <mat-card-header>
-        <mat-card-title>{{ selectedCoffeeItem.name }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <p>{{ selectedCoffeeItem.description }}</p>
-        <p>Price: ${{ selectedCoffeeItem.price }}</p>
-        <mat-chip-listbox>
-            <mat-chip color="primary" *ngIf="selectedCoffeeItem.inStock">In Stock</mat-chip>
-            <mat-chip color="warn" *ngIf="!selectedCoffeeItem.inStock">Out of Stock</mat-chip>
-        </mat-chip-listbox>
-    </mat-card-content>
+    <h2>{{ selectedCoffeeItem.name }}</h2>
+    <p>{{ selectedCoffeeItem.description }}</p>
+    <p>Price: ${{ selectedCoffeeItem.price }}</p>
+    <mat-chip-listbox>
+        <mat-chip color="primary" *ngIf="selectedCoffeeItem.inStock">In Stock</mat-chip>
+        <mat-chip color="warn" *ngIf="!selectedCoffeeItem.inStock">Out of Stock</mat-chip>
+    </mat-chip-listbox>
 </mat-card>
 
 <mat-list>
     <mat-list-item *ngFor="let coffee of CoffeeItems">
-        <mat-icon matListItemIcon>local_cafe</mat-icon>
-        <div matListItemTitle>{{ coffee.name }}</div>
-        <div matListItemLine>${{ coffee.price }}</div>
+        <app-coffee-list-item [inStock]="coffee"></app-coffee-list-item>
         <div matListItemMeta>
             <button mat-icon-button color="primary" (click)="updateCoffeeItem(coffee)">
-                <mat-icon>edit</mat-icon>
-            </button>
+                edit </button>
             <button mat-icon-button color="warn" (click)="deleteCoffeeItem(coffee.id)">
-                <mat-icon>delete</mat-icon>
-            </button>
-            <mat-icon *ngIf="coffee.inStock" color="primary">check_circle</mat-icon>
-            <mat-icon *ngIf="!coffee.inStock" color="warn">cancel</mat-icon>
+                delete </button>
         </div>
+    </mat-list-item>
+</mat-list>
+
+<h3>Menu</h3>
+<mat-list>
+    <mat-list-item *ngFor="let coffee of CoffeeItems" (click)="selectCoffee(coffee.id)" class="clickable-item"
+        style="cursor: pointer;">
+        {{ coffee.name }} - ${{ coffee.price }}
     </mat-list-item>
 </mat-list>

@@ -2,11 +2,10 @@ import { Component, Input } from '@angular/core';
 import { Coffee } from '../Shared/interfaces/coffee';
 import {
   NgIf,
-  NgOptimizedImage,
   DatePipe,
   CurrencyPipe,
   UpperCasePipe,
-  NgClass,
+  NgOptimizedImage,
 } from '@angular/common';
 import { AvailabilityColorPipe } from '../Shared/pipes/availabilty-color.pipe';
 import { CoffeeStrengthPipe } from '../Shared/pipes/coffee-strength.pipe';
@@ -24,7 +23,6 @@ import { MatBadgeModule } from '@angular/material/badge';
     DatePipe,
     CurrencyPipe,
     UpperCasePipe,
-    NgClass,
     AvailabilityColorPipe,
     CoffeeStrengthPipe,
     HoverHighlightDirective,
@@ -32,6 +30,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatChipsModule,
     MatIconModule,
     MatBadgeModule,
+    NgOptimizedImage,
   ],
   templateUrl: './coffee-list-item.component.html',
   styleUrl: './coffee-list-item.component.css',

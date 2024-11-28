@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Coffee } from '../Shared/interfaces/coffee';
 import { CoffeeListItemComponent } from '../coffee-list-item/coffee-list-item.component';
 import { CoffeeService } from '../Services/coffee.service';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, NgOptimizedImage } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,6 +21,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatIconModule,
     MatCardModule,
     MatChipsModule,
+    NgOptimizedImage,
+    CoffeeListItemComponent,
   ],
   templateUrl: './coffee-list.component.html',
   styleUrl: './coffee-list.component.css',
