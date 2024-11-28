@@ -9,11 +9,24 @@ import { CoffeeService } from '../Services/coffee.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Coffee } from '../Shared/interfaces/coffee';
 import { HighlightOnFocusDirective } from '../Shared/directives/highlight-on-focus.directive';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
-  imports: [ReactiveFormsModule, HighlightOnFocusDirective],
+  imports: [
+    NgIf,
+    ReactiveFormsModule,
+    HighlightOnFocusDirective,
+    MatInputModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatTooltipModule,
+  ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css',
 })

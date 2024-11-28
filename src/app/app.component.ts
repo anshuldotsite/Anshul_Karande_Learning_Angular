@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
-import { CoffeeListComponent } from './coffee-list/coffee-list.component';
 import { CoffeeService } from './Services/coffee.service';
-import { CoffeeListItemComponent } from './coffee-list-item/coffee-list-item.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    NgFor,
-    NgIf,
-    CoffeeListComponent,
-    CoffeeListItemComponent,
     RouterOutlet,
     RouterLinkActive,
     RouterLink,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

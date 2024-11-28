@@ -1,14 +1,21 @@
-<!-- Future Nav bar-->
-<div class="nav-bar">
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon>coffee</mat-icon>
+  </button>
+  <span>{{ title }}</span>
+  <span class="spacer"></span>
   <nav>
-    <a routerLink="/coffee" routerLinkActive="active">Coffee List</a>
-    <a routerLink="/modify-coffee" routerLinkActive="active">Modify Coffee</a>
+    <a mat-button routerLink="/coffee" routerLinkActive="active">
+      <mat-icon>list</mat-icon>
+      Coffee List
+    </a>
+    <a mat-button routerLink="/modify-coffee" routerLinkActive="active">
+      <mat-icon>edit</mat-icon>
+      Modify Coffee
+    </a>
   </nav>
-</div>
+</mat-toolbar>
 
 <div class="app-container">
-  <h1>{{ title }}</h1>
-
-  <!--router outlet to display routed components -->
   <router-outlet></router-outlet>
 </div>

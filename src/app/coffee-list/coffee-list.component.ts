@@ -4,11 +4,24 @@ import { CoffeeListItemComponent } from '../coffee-list-item/coffee-list-item.co
 import { CoffeeService } from '../Services/coffee.service';
 import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 
 @Component({
   selector: 'app-coffee-list',
   standalone: true,
-  imports: [CoffeeListItemComponent, NgIf, NgFor],
+  imports: [
+    NgIf,
+    NgFor,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatChipsModule,
+  ],
   templateUrl: './coffee-list.component.html',
   styleUrl: './coffee-list.component.css',
 })

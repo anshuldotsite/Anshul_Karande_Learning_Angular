@@ -1,28 +1,55 @@
 <form [formGroup]="coffeeForm" (ngSubmit)="onSubmit()">
     <!-- ID Field -->
-    <div class="form-group">
-        <label for="id">ID</label>
-        <input type="number" id="id" formControlName="id" appHighlightOnFocus />
-    </div>
+    <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput type="number" formControlName="id" appHighlightOnFocus
+            matTooltip="Enter a unique numeric ID for the coffee item" />
+        <mat-error *ngIf="coffeeForm.get('id')?.invalid">
+            Please enter a valid ID
+        </mat-error>
+    </mat-form-field>
 
     <!-- Name Field -->
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" formControlName="name" appHighlightOnFocus />
-    </div>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" appHighlightOnFocus
+            matTooltip="Enter the name of the coffee item" />
+        <mat-error *ngIf="coffeeForm.get('name')?.invalid">
+            Please enter a valid name
+        </mat-error>
+    </mat-form-field>
 
     <!-- In Stock Field -->
-    <div class="form-group">
-        <label for="inStock">In Stock</label>
-        <input type="checkbox" id="inStock" formControlName="inStock" />
-    </div>
+    <mat-checkbox formControlName="inStock" matTooltip="Check if the item is currently in stock">
+        In Stock
+    </mat-checkbox>
 
     <!-- Price Field -->
-    <div class="form-group">
-        <label for="price">Price</label>
-        <input type="number" id="price" formControlName="price" appHighlightOnFocus />
-    </div>
+    <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput type="number" formControlName="price" appHighlightOnFocus
+            matTooltip="Enter the price of the coffee item" />
+        <mat-error *ngIf="coffeeForm.get('price')?.invalid">
+            Please enter a valid price
+        </mat-error>
+    </mat-form-field>
 
-    <!-- Submit Button (Add or Update) -->
-    <button type="submit">Submit</button>
+    <!-- Description Field -->
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" appHighlightOnFocus
+            matTooltip="Provide a description of the coffee item"></textarea>
+    </mat-form-field>
+
+    <!-- Image Field -->
+    <mat-form-field>
+        <mat-label>Image URL</mat-label>
+        <input matInput type="text" formControlName="image" appHighlightOnFocus
+            matTooltip="Enter the URL of the coffee item image" />
+    </mat-form-field>
+
+    <!-- Submit Button -->
+    <button mat-raised-button color="primary" type="submit" [disabled]="!coffeeForm.valid">
+        Submit
+    </button>
 </form>

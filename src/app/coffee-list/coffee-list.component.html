@@ -1,22 +1,31 @@
-<div *ngIf="selectedCoffeeItem" class="selected-item">
-    <h2>{{ selectedCoffeeItem.name }}</h2>
-    <p>{{ selectedCoffeeItem.description }}</p>
-    <p>Price: ${{ selectedCoffeeItem.price }}</p>
-    <p *ngIf="selectedCoffeeItem.inStock">In Stock</p>
-    <p *ngIf="!selectedCoffeeItem.inStock">Out of Stock</p>
-</div>
+<mat-card *ngIf="selectedCoffeeItem" class="selected-item">
+    <mat-card-header>
+        <mat-card-title>{{ selectedCoffeeItem.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{ selectedCoffeeItem.description }}</p>
+        <p>Price: ${{ selectedCoffeeItem.price }}</p>
+        <mat-chip-listbox>
+            <mat-chip color="primary" *ngIf="selectedCoffeeItem.inStock">In Stock</mat-chip>
+            <mat-chip color="warn" *ngIf="!selectedCoffeeItem.inStock">Out of Stock</mat-chip>
+        </mat-chip-listbox>
+    </mat-card-content>
+</mat-card>
 
-<div *ngFor="let coffee of CoffeeItems">
-    <app-coffee-list-item [inStock]="coffee"></app-coffee-list-item>
-    <button (click)="updateCoffeeItem(coffee)">Edit</button>
-    <button (click)="deleteCoffeeItem(coffee.id)">Delete</button>
-</div>
-
-
-<h3>Menu</h3>
-<ul>
-    <li *ngFor="let coffee of CoffeeItems" (click)="selectCoffee(coffee.id)" class="clickable-item"
-        style="cursor: pointer;">
-        {{ coffee.name }} - ${{ coffee.price }}
-    </li>
-</ul>
+<mat-list>
+    <mat-list-item *ngFor="let coffee of CoffeeItems">
+        <mat-icon matListItemIcon>local_cafe</mat-icon>
+        <div matListItemTitle>{{ coffee.name }}</div>
+        <div matListItemLine>${{ coffee.price }}</div>
+        <div matListItemMeta>
+            <button mat-icon-button color="primary" (click)="updateCoffeeItem(coffee)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteCoffeeItem(coffee.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <mat-icon *ngIf="coffee.inStock" color="primary">check_circle</mat-icon>
+            <mat-icon *ngIf="!coffee.inStock" color="warn">cancel</mat-icon>
+        </div>
+    </mat-list-item>
+</mat-list>

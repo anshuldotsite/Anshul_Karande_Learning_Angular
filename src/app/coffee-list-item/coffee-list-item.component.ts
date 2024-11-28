@@ -11,13 +11,16 @@ import {
 import { AvailabilityColorPipe } from '../Shared/pipes/availabilty-color.pipe';
 import { CoffeeStrengthPipe } from '../Shared/pipes/coffee-strength.pipe';
 import { HoverHighlightDirective } from '../Shared/directives/hover-highlight.directive';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @Component({
   selector: 'app-coffee-list-item',
   standalone: true,
   imports: [
     NgIf,
-    NgOptimizedImage,
     DatePipe,
     CurrencyPipe,
     UpperCasePipe,
@@ -25,6 +28,10 @@ import { HoverHighlightDirective } from '../Shared/directives/hover-highlight.di
     AvailabilityColorPipe,
     CoffeeStrengthPipe,
     HoverHighlightDirective,
+    MatCardModule,
+    MatChipsModule,
+    MatIconModule,
+    MatBadgeModule,
   ],
   templateUrl: './coffee-list-item.component.html',
   styleUrl: './coffee-list-item.component.css',

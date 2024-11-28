@@ -1,12 +1,29 @@
-<div *ngIf="inStock" [appHoverHighlight]="'lightblue'">
-    <p><strong>ID:</strong>{{inStock.id}}</p>
-    <p><strong>Name:</strong>{{inStock.name.toString() | uppercase}}</p>
-    <p><strong>Description:</strong>{{inStock.description}}</p>
-    <p><strong>Price:</strong>{{inStock.price | currency:"CAD": "symbol-narrow"}}</p>
-    <p [ngClass]="(inStock.inStock ?? false) | availabilityColor">
-        <strong>Stock:</strong> {{inStock.inStock ? 'In Stock' : 'Out of Stock'}}
-    </p>
-    <p><strong>Last Updated:</strong> {{today | date:'medium'}}</p>
-    <p><strong>Strength:</strong> {{inStock.name.toString() | coffeeStrength}}</p>
-    <img [ngSrc]="inStock.image" width="100" height="100" />
-</div>
+<mat-card *ngIf="inStock" class="coffee-card" [appHoverHighlight]="'lightblue'">
+    <mat-card-header>
+        <mat-card-title>
+            <mat-icon>local_cafe</mat-icon>
+            {{inStock.name.toString() | uppercase}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            <mat-chip-set>
+                <mat-chip>ID: {{inStock.id}}</mat-chip>
+                <mat-chip [color]="(inStock.inStock ?? false) | availabilityColor">
+                    {{inStock.inStock ? 'In Stock' : 'Out of Stock'}}
+                </mat-chip>
+            </mat-chip-set>
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image [src]="inStock.image" alt="Coffee Image">
+
+    <mat-card-content>
+        <p>{{inStock.description}}</p>
+        <div class="coffee-details">
+            <mat-badge matBadge="$" matBadgeOverlap="false">
+                Price: {{inStock.price | currency:"CAD": "symbol-narrow"}}
+            </mat-badge>
+            <p>Strength: {{inStock.name.toString() | coffeeStrength}}</p>
+            <p>Last Updated: {{today | date:'medium'}}</p>
+        </div>
+    </mat-card-content>
+</mat-card>
